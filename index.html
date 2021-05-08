@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="timer">
+        <div>
+            <h2>Lets Set Timer!!</h2>
+            <div class="countdown">
+                <div class="container-hour">
+                    <input class="time" type="number" min="0" max="24" value="0" id="hour"></input>
+                    <h3>Hour</h3>
+                </div>
+                <div class="container-minute">
+                    <input class="time" type="number" min="0" max="60" value="0" id="minute"></input>
+                    <h3>Minute</h3>
+                </div>
+                <div class="container-second">
+                    <input class="time" type="number" min="0" max="60" value="0" id="second"></input>
+                    <h3>Second</h3>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="start" class="btn">Start</button>
+            <button id="reset" class="btn">Reset</button>
+        </div>
+        <img class="pic" src="timePic.svg" alt="Timer image">
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
