@@ -18,6 +18,9 @@ start.addEventListener('click', function(){
             timer();
         }, 1000);
     }
+    if(document.getElementById("start").innerHTML == "Resume"){
+        document.getElementById("start").innerHTML = "Start";
+    }
     startInterval();
 })
 
@@ -28,13 +31,19 @@ reset.addEventListener('click', function(){
     minute.value = 0;
     second.value = 0;
     stopInterval()
+    if(document.getElementById("start").innerHTML == "Resume"){
+        document.getElementById("start").innerHTML = "Start";
+    }
 })
 
 
 //clearInterval() method clears a timer set with the setInterval() method
 pause.addEventListener('click',function(){
     clearInterval(startTimer);
+    document.getElementById("start").innerHTML = "Resume";
 })
+
+
 
 function timer(){
     if(hour.value == 0 && minute.value == 0 && second.value == 0 && day.value == 0){

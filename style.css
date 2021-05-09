@@ -52,15 +52,19 @@ h2{
 }
 
 .btn { 
-    width: 70px;
     height: 40px;
     font-size: 20px;
-    padding: 5px;
+    padding: 5px 15px;
     margin: 10px;
-    background-color: rgb(255, 255, 255, 0.2);
+    background-color: rgb(255, 255, 255, 0.5);
     border-radius: 30%;
     border-color: antiquewhite;
     cursor: pointer;
+    border: none;
+}
+
+.btn:hover{
+    background-color: rgb(255, 255, 255, 0.8);
 }
 
 input::-webkit-outer-spin-button,
@@ -72,4 +76,8 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+input::placeholder{
+    color: black;
 }
