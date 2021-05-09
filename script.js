@@ -1,15 +1,17 @@
 
 var start = document.getElementById('start');
 var reset = document.getElementById('reset');
+var pause = document.getElementById('pause');
 
-var h = document.getElementById("hour");
-var m = document.getElementById("minute");
-var s = document.getElementById("second");
+var day = document.getElementById("day");
+var hour = document.getElementById("hour");
+var minute = document.getElementById("minute");
+var second = document.getElementById("second");
 
 var startTimer = null;
 
 start.addEventListener('click', function(){
-    //we need to run this function every second to update the time so we use setInterval()
+  //setInterval() allows to execute statements repetedly after an interval
     function startInterval(){
         startTimer = setInterval(function() {
             timer();
@@ -18,34 +20,45 @@ start.addEventListener('click', function(){
     startInterval();
 })
 
+
 reset.addEventListener('click', function(){
-    h.value = 0;
-    m.value = 0;
-    s.value = 0;
-    //stop the timer after pressing "reset"
+    day.value = 0;
+    hour.value = 0;
+    minute.value = 0;
+    second.value = 0;
     stopInterval()
 })
 
 
+//clearInterval() method clears a timer set with the setInterval() method
+pause.addEventListener('click',function(){
+    clearInterval(startTimer);
+})
+
 function timer(){
-    if(h.value == 0 && m.value == 0 && s.value == 0){
-        h.value = 0;
-        m.value = 0;
-        s.value = 0;
-    } else if(s.value != 0){
-        s.value--;
-    } else if(m.value != 0 && s.value == 0){
-        s.value = 59;
-        m.value--;
-    } else if(h.value != 0 && m.value == 0){
-        m.value = 60;
-        h.value--;
+    if(hour.value == 0 && minute.value == 0 && second.value == 0 && day.value == 0){
+        hour.value = 0;
+        minute.value = 0;
+        second.value = 0;
+        day.value = 0;
+    } else if(second.value != 0){
+        second.value--;
+    } else if(minute.value != 0 && second.value == 0){
+        second.value = 59;
+        minute.value--;
+    } else if(hour.value != 0 && minute.value == 0){
+        minute.value = 60;
+        hour.value--;
+    } else if(day.value != 0 && hour.value == 0){
+        hour.value = 23;
+        minute.value = 59;
+        second.value = 59;
+        day.value--;
     }
     return;
 }
 
-//stop the function after pressing the reset button, 
-//so the time wont go down when selecting a new time after pressing reset
+
 function stopInterval() {
     clearInterval(startTimer);
 }
