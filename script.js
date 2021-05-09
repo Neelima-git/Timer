@@ -10,19 +10,18 @@ var second = document.getElementById("second");
 
 var startTimer = null;
 
-start.addEventListener('click', function(){
-  //setInterval() allows to execute statements repetedly after an interval
-   clearInterval(startTimer);
-    function startInterval(){
-        startTimer = setInterval(function() {
-            timer();
-        }, 1000);
-    }
-    if(document.getElementById("start").innerHTML == "Resume"){
-        document.getElementById("start").innerHTML = "Start";
-    }
-    startInterval();
-})
+function test(){
+    //setInterval() allows to execute statements repetedly after an interval
+     clearInterval(startTimer);
+      function startInterval(){
+          startTimer = setInterval(function() {
+              timer();
+          }, 1000);
+      }
+      startInterval();
+  }
+
+start.addEventListener('click', test )
 
 
 reset.addEventListener('click', function(){
@@ -39,8 +38,17 @@ reset.addEventListener('click', function(){
 
 //clearInterval() method clears a timer set with the setInterval() method
 pause.addEventListener('click',function(){
-    clearInterval(startTimer);
-    document.getElementById("start").innerHTML = "Resume";
+    if(document.getElementById("pause").innerHTML == "Resume")
+    {
+        document.getElementById("pause").innerHTML="Pause";
+        // clearInterval(startTimer);
+        test();
+    }
+    else{
+        document.getElementById("pause").innerHTML="Resume";
+        // setInterval(startTimer);
+        clearInterval(startTimer);
+    }
 })
 
 
