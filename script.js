@@ -12,6 +12,7 @@ var startTimer = null;
 
 start.addEventListener('click', function(){
   //setInterval() allows to execute statements repetedly after an interval
+   clearInterval(startTimer);
     function startInterval(){
         startTimer = setInterval(function() {
             timer();
