@@ -10,7 +10,7 @@ var second = document.getElementById("second");
 
 var startTimer = null;
 
-function test(){
+function starttheTimer(){
     //setInterval() allows to execute statements repetedly after an interval
      clearInterval(startTimer);
       function startInterval(){
@@ -21,7 +21,7 @@ function test(){
       startInterval();
   }
 
-start.addEventListener('click', test )
+start.addEventListener('click', starttheTimer )
 
 
 reset.addEventListener('click', function(){
@@ -36,17 +36,15 @@ reset.addEventListener('click', function(){
 })
 
 
-//clearInterval() method clears a timer set with the setInterval() method
 pause.addEventListener('click',function(){
     if(document.getElementById("pause").innerHTML == "Resume")
     {
         document.getElementById("pause").innerHTML="Pause";
-        // clearInterval(startTimer);
-        test();
+        starttheTimer();
     }
     else{
-        document.getElementById("pause").innerHTML="Resume";
-        // setInterval(startTimer);
+        document.getElementById("pause").innerHTML="Resume";       
+        //clearInterval() method clears a timer set with the setInterval() method
         clearInterval(startTimer);
     }
 })
@@ -54,7 +52,7 @@ pause.addEventListener('click',function(){
 
 
 function timer(){
-    if(hour.value == 0 && minute.value == 0 && second.value == 0 && day.value == 0){
+    if(hour.value == 0 && minute.value == 0 && second.value == 0 && day.value == 0){ 
         hour.value = 0;
         minute.value = 0;
         second.value = 0;
@@ -63,7 +61,7 @@ function timer(){
         second.value--;
     } else if(minute.value != 0 && second.value == 0){
         second.value = 59;
-        minute.value--;
+        minute.value--; 
     } else if(hour.value != 0 && minute.value == 0){
         minute.value = 60;
         hour.value--;
